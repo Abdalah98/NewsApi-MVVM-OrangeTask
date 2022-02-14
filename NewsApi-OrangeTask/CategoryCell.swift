@@ -16,5 +16,8 @@ class CategoryCell: UITableViewCell {
             nameCategoryLabel.text = categoryCellViewModel?.categoryName
         }
     }
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 2, left: 10, bottom:2, right: 10))
+    }
 }

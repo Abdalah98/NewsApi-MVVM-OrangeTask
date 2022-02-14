@@ -14,12 +14,12 @@ class CountryNameCell: UITableViewCell {
     var countryNameCellViewModel:CountryCellViewModel?{
         didSet{
             nameCountryLabel.text = countryNameCellViewModel?.countryName
+            checkImage.image      = UIImage(named: countryNameCellViewModel?.countryIamge ?? "")
         }
     }
-    
-    override var isSelected: Bool{
-        didSet{
-            nameCountryLabel.textColor = isSelected ? #colorLiteral(red: 0.9973734021, green: 0.6361894011, blue: 0.07230844349, alpha: 1) : #colorLiteral(red: 0.6823529412, green: 0.6823529412, blue: 0.6823529412, alpha: 1)
-        }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 2, left: 10, bottom:2, right: 10))
     }
+   
 }

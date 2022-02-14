@@ -10,62 +10,19 @@ class CountryViewModel {
     let userDefaults = UserDefaults.standard
 
     var selectedIndex:Country?
-private var countryName = [Country(name: "ae"),
-                 Country(name: "ar"),
-                 Country(name: "at"),
-                 Country(name: "au"),
-                 Country(name: "be"),
-                 Country(name: "bg"),
-                 Country(name: "br"),
-                 Country(name: "ca"),
-                 Country(name: "au"),
-                 Country(name: "ch"),
-                 Country(name: "cn"),
-                 Country(name: "co"),
-                 Country(name: "cu"),
-                 Country(name: "cz"),
-                 Country(name: "de"),
-                 Country(name: "eg"),
-                 Country(name: "fr"),
-                 Country(name: "gb"),
-                 Country(name: "gr"),
-                 Country(name: "hk"),
-                 
-                 Country(name: "hu"),
-                 Country(name: "id"),
-                 Country(name: "ie"),
-                 Country(name: "il"),
-                 Country(name: "in"),
-                 Country(name: "it"),
-                 Country(name: "jp"),
-                 Country(name: "kr"),
-                 Country(name: "lt"),
-                 Country(name: "lv"),
-                 Country(name: "ma"),
-                 Country(name: "mx"),
-                 
-                 Country(name: "ng"),
-                 Country(name: "nl"),
-                 Country(name: "no"),
-                 Country(name: "nz"),
-                 Country(name: "ph"),
-                 Country(name: "pl"),
-                 Country(name: "pt"),
-                 Country(name: "ro"),
-                 Country(name: "rs"),
-                 Country(name: "ru"),
-                 Country(name: "sa"),
-                 Country(name: "se"),
-                 Country(name: "sg"),
-                 Country(name: "si"),
-                 Country(name: "sk"),
-                 Country(name: "th"),
-                 Country(name: "tr"),
-                 Country(name: "tw"),
-                 Country(name: "ua"),
-                 Country(name: "us"),
-                 Country(name: "ve"),
-                 Country(name: "za")
+private var countryName = [Country(countryName: "Egypt", countryImage: "egypt", countryAppreviation: "eg"),
+    Country(countryName: "The United States of America", countryImage: "united-states", countryAppreviation: "us"),
+    Country(countryName: "France", countryImage: "france", countryAppreviation: "fr"),
+    Country(countryName: "The United Arab Emirates", countryImage: "united-arab-emirates", countryAppreviation: "ar"),
+    Country(countryName: "Germany", countryImage: "germany", countryAppreviation: "de"),
+    Country(countryName: "Russia", countryImage: "russia", countryAppreviation: "ru"),
+
+    Country(countryName: "Italian Republic", countryImage: "italy", countryAppreviation: "it"),
+    Country(countryName: "Japan", countryImage: "japan", countryAppreviation: "jp"),
+    Country(countryName: "Norway", countryImage: "norway", countryAppreviation: "no"),
+    
+    Country(countryName: "New Zealand", countryImage: "new-zealand", countryAppreviation: "nz"),
+    Country(countryName: "Australia", countryImage: "australia", countryAppreviation: "au"),
 ]
     
     // The cellViewModel in which I put the data  i get it from json and put in cell when data isready
@@ -89,9 +46,11 @@ private var countryName = [Country(name: "ae"),
     //  i fetch data and i put data  in CountryNameCellViewModel
  
     func createCellViewModel( country: Country ) -> CountryCellViewModel {
-        let countryName = country.name
+        let countryName = country.countryName
+        let countryImage = country.countryImage
+        let countryAppreviation = country.countryAppreviation
 
-        return CountryCellViewModel(countryName: countryName)
+        return CountryCellViewModel(countryName: countryName, countryAppreviation: countryAppreviation, countryIamge: countryImage)
     }
     // fetch all Country and for loop it  and append data in createCellViewModel
      private func processFetchedCountry( country: [Country] ) {
@@ -109,6 +68,11 @@ private var countryName = [Country(name: "ae"),
         let country = self.countryName[indexPath.row]
  
         self.selectedIndex = country
+        print(selectedIndex?.countryAppreviation ?? "","inde")
+        
+       userDefaults.set(selectedIndex?.countryAppreviation ?? "", forKey: Constant.countryName)
+        print(UserDefaults.standard.string(forKey: Constant.countryName))
+
     }
 }
  

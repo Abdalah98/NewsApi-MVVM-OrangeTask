@@ -37,12 +37,12 @@ class CategoryViewModel {
     }
     
     //  i fetch data and i put data  in categoryCellViewModel
- 
     func createCellViewModel( category: Category ) -> CategoryCellViewModel {
         let categoryName = category.categoryName
 
         return CategoryCellViewModel(categoryName:categoryName)
     }
+    
     // fetch all category and for loop it  and append data in createCellViewModel
      private func processFetchedCategoy( category: [Category] ) {
         self.categoryName = category // Cache
@@ -56,7 +56,11 @@ class CategoryViewModel {
     
     // return when i selectedcategoryName cell get cell indexPath Item
     func selectCategory( at indexPath: IndexPath ){
-        let country = self.categoryName[indexPath.row]
-        self.selectedIndex = country
+        let category = self.categoryName[indexPath.row]
+        self.selectedIndex =  category
+        print(selectedIndex?.categoryName ?? "")
+      // userDefaults.set([category], forKey: Constant.categoryName)
+      //  print(UserDefaults.standard.string(forKey: Constant.categoryName) ?? [])
+
     }
 }

@@ -7,6 +7,9 @@
 
 import Foundation
  struct Country {
-    var name : String
- 
+    var countryName : String
+    var countryImage : String
+    var countryAppreviation : String
+
 }
+

@@ -24,9 +24,9 @@ class CategoryVC: UIViewController {
     }()
     
     @IBAction func nextAction(_ sender: Any) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "MainTabBar", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBar")
-         nextViewController.modalPresentationStyle = .fullScreen
+        let storyBoard : UIStoryboard = UIStoryboard(name: Constant.mainHeadLineNews, bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: Constant.navHeadLineNews)
+        nextViewController.modalPresentationStyle = .fullScreen
         self.present(nextViewController, animated:true, completion:nil)
     }
     

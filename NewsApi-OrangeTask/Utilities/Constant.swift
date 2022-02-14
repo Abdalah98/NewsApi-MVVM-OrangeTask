@@ -9,23 +9,15 @@
 import Foundation
 
 enum ApiKey {
-    static let apiKey                  =   "acea22a4e7c242ed95b6c26851d0b776"
-    
+    static let apiKey                  =   "2726bf3883ef4a29862f124e9ff4a46e"
+
 }
 
 // The name urlString
 enum URLS {
-    static let country                 =   "de"
-    static let category                =   "business"
-    static let newsList = "https://newsapi.org/v2/top-headlines?country=\(country)&category=\(category)&apiKey=\(ApiKey.apiKey)"
-    static let newsList2 = "https://newsapi.org/v2/top-headlines?country=eg&category=sports&apiKey=acea22a4e7c242ed95b6c26851d0b776"
-    static let newsList3 = "https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=acea22a4e7c242ed95b6c26851d0b776"
-  
-    
-    
+    static let newsList = "https://newsapi.org/v2/top-headlines?country=%@&category=%@&apiKey=\(ApiKey.apiKey)"
+
 }
-
-
 
 
 // namenib of cell
@@ -33,16 +25,24 @@ enum Cell {
     static let countryCell                   =   "CountryNameCell"
     static let categoryCell                  =   "CategoryCell"
     static let headLineNewsCell              =   "HeadLineNewsCell"
-
-    
-    
 }
 
 // name Segue of storyboard
-enum  Segue{
-    static let goProductListDetails              =   "GoProductListDetails"
-}
+enum  Constant{
+    //userDefult
+    static let countryName                =   "CountryName"
+    static let categoryName              =   "CategoryName"
 
-struct UserDefulat {
+    //storyBoard main
+    static let main         =  "Main"
+    static let categoryVC   = "CategoryVC"
+    static let CountryVC    = "CountryVC"
+    //storyboard headlinenews
+    static let   navHeadLineNews           =  "NavHeadLineNews"
+    static let mainHeadLineNews   = "HeadLineNews"
+    static let headLineNewsVC   = "HeadLineNewsVC"
+ 
     
 }
+
+
