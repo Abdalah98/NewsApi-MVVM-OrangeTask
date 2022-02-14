@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--favorite Categories-->
+        <scene sceneID="zsl-aR-7Yt">
+            <objects>
+                <viewController storyboardIdentifier="HeadLineNewsVC" id="OSg-7v-TXs" customClass="HeadLineNewsVC" customModule="NewsApi_OrangeTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RX9-vS-d5e">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CuD-1i-evW">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="43.5" id="5JM-aa-17T">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5JM-aa-17T" id="xUd-VK-7rk">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OSg-7v-TXs" id="JKm-3M-QB6"/>
+                                    <outlet property="delegate" destination="OSg-7v-TXs" id="ocx-Ia-4rT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZSi-Ay-FZ4"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="ZSi-Ay-FZ4" firstAttribute="bottom" secondItem="CuD-1i-evW" secondAttribute="bottom" id="9H6-Ry-d3l"/>
+                            <constraint firstItem="ZSi-Ay-FZ4" firstAttribute="trailing" secondItem="CuD-1i-evW" secondAttribute="trailing" id="BpS-iv-ziU"/>
+                            <constraint firstItem="CuD-1i-evW" firstAttribute="top" secondItem="RX9-vS-d5e" secondAttribute="top" constant="88" id="jlg-Rl-GES"/>
+                            <constraint firstItem="CuD-1i-evW" firstAttribute="leading" secondItem="ZSi-Ay-FZ4" secondAttribute="leading" id="s6z-yW-cwx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="favorite Categories" id="czL-lL-AOQ"/>
+                    <connections>
+                        <outlet property="headLineNewsTableView" destination="CuD-1i-evW" id="aTc-0h-KBf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJP-my-bLG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1424.6376811594205" y="-435.9375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ra7-jk-90s">
+            <objects>
+                <navigationController storyboardIdentifier="UINavigationController-IdV-XY-Lt8" automaticallyAdjustsScrollViewInsets="NO" id="IdV-XY-Lt8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="topRated" id="AOE-0m-1Pg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="pKO-b9-asT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OSg-7v-TXs" kind="relationship" relationship="rootViewController" id="qIK-Nz-RIm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MN0-Am-SKn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="513.04347826086962" y="-436.60714285714283"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

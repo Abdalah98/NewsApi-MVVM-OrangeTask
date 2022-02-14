@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pgr-MH-Cew">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="4Qy-R1-4WT">
+            <objects>
+                <viewController id="3at-mL-v8x" customClass="SearchVC" customModule="NewsApi_OrangeTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cgj-Qw-xge">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3qL-mt-oZG">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Nug-pk-GNl">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nug-pk-GNl" id="7oO-Pg-pzh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="3at-mL-v8x" id="E4N-5i-ja1"/>
+                                    <outlet property="delegate" destination="3at-mL-v8x" id="rua-wT-gBl"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ldi-u8-omR"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="3qL-mt-oZG" firstAttribute="bottom" secondItem="Ldi-u8-omR" secondAttribute="bottom" id="7ui-o5-KHK"/>
+                            <constraint firstItem="3qL-mt-oZG" firstAttribute="leading" secondItem="Ldi-u8-omR" secondAttribute="leading" id="THX-jp-Z1G"/>
+                            <constraint firstItem="3qL-mt-oZG" firstAttribute="top" secondItem="Ldi-u8-omR" secondAttribute="top" id="ekk-1s-kko"/>
+                            <constraint firstItem="3qL-mt-oZG" firstAttribute="trailing" secondItem="Ldi-u8-omR" secondAttribute="trailing" id="sUa-ja-DwR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search" id="PSV-5V-XG9"/>
+                    <connections>
+                        <outlet property="searchTableView" destination="3qL-mt-oZG" id="s92-Rx-fF4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gf7-RW-b1Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1374" y="313"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CyR-Hx-A7V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pgr-MH-Cew" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="thc-nR-69y"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ieE-Vy-WzQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3at-mL-v8x" kind="relationship" relationship="rootViewController" id="o5E-7u-Mqw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aXY-yd-3ud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="534.78260869565224" y="235.71428571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
