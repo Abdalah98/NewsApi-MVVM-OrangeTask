@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     fileprivate func rootViewController() {
-        if UserDefaults.standard.string(forKey: Constant.countryName) != nil  && UserDefaults.standard.string(forKey: Constant.categoryName) != nil {
+        if UserDefaults.standard.string(forKey: Constant.countryName) != nil {
             let storyboard = UIStoryboard(name: Constant.mainHeadLineNews, bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: Constant.headLineNewsVC)
             let nav = UINavigationController(rootViewController: viewController)
