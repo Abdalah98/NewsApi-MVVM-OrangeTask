@@ -15,7 +15,6 @@ The app has several main features:
 
 4- Search in Favorite categories 
 
-
     •     Project Organization & Architecture
     •     MVVM With Dependency Injection
     •     Support Dark Mode & light mode 
@@ -30,10 +29,10 @@ The app has several main features:
     •     Animations 
     •     and many tools used
 
-
-  
-
-
 #### UI
 ## video demo
+## Dark
+![Uploading ezgif.com-gif-maker.gif…]()
+
+## Light
 https://user-images.githubusercontent.com/41602889/154153453-e00b076a-fdfa-4969-aa7e-fa3922029b81.mov
