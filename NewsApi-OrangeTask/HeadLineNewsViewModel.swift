@@ -51,12 +51,10 @@ class HeadLineNewsViewModel{
     }
     // return number count of cell
     var numberOfCell :Int {
-        print(cellViewModel.count)
-        return cellViewModel.count
+         return cellViewModel.count
     }
     var numberOfCellSearch :Int {
-        print(filteredData.count)
-        return filteredData.count
+         return filteredData.count
     }
     //  base of loading view
     var state: State = .empty {
@@ -67,6 +65,7 @@ class HeadLineNewsViewModel{
     // alertMessage  put the error in it if get error from api i  put it and show in Alert
     var alertMessage: String? {
         didSet {
+            
             self.showAlertClosure?()
         }
     }

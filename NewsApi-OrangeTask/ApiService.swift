@@ -7,8 +7,14 @@
 
 import Foundation
 class ApiService {
-    func getNewsList(countryName:String,categoryName:String) -> URL {
-        return  URL(string:String(format: URLS.newsList, arguments: [countryName,categoryName]))!
+    
+    func getNewsList(countryName:String,categoryName:String) -> URL? {
+         let url  =  URL(string:String(format: URLS.newsList, arguments: [countryName,categoryName]))
+        if  url != nil {
+            return url
+        }else{
+            return URL(string: "")
+        }
     }
     
     func fetchAllNews(from url: URL?,  complete completion: @escaping ((Result<AllNews, ResoneError>) -> Void)) {
@@ -37,7 +43,9 @@ class ApiService {
             do {
                 let objects = try JSONDecoder().decode(AllNews.self, from: data)
                 // success
-                completion(.success(objects))
+                //objects.articles.sort { $0.date < $1.date }
+
+                 completion(.success(objects))
             } catch {
                 completion(.failure(.invalidData))
             }

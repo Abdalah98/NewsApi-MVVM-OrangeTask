@@ -47,7 +47,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbZ-ib-fyu">
                                 <rect key="frame" x="48.5" y="0.0" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -70,16 +70,16 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6U-1h-58N">
                                 <rect key="frame" x="64.5" y="0.0" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgv-9A-6Rh">
-                        <rect key="frame" x="110.5" y="217" width="147" height="30"/>
-                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <rect key="frame" x="92" y="212" width="184" height="35"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="fRm-Zz-ajN"/>
+                            <constraint firstAttribute="height" constant="35" id="fRm-Zz-ajN"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <state key="normal" title="Open Url">
@@ -97,10 +97,10 @@
                 </subviews>
                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 <constraints>
-                    <constraint firstItem="Wgv-9A-6Rh" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.4" id="1Ev-Tp-wIP"/>
+                    <constraint firstItem="Wgv-9A-6Rh" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="1Ev-Tp-wIP"/>
+                    <constraint firstItem="Wgv-9A-6Rh" firstAttribute="top" secondItem="WRI-ye-iUz" secondAttribute="bottom" constant="14.5" id="3ea-Ya-vgT"/>
                     <constraint firstItem="Wgv-9A-6Rh" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="4mB-hO-bqZ"/>
                     <constraint firstAttribute="trailing" secondItem="2qV-9D-Ckr" secondAttribute="trailing" constant="10" id="Adn-cq-D8x"/>
-                    <constraint firstItem="Wgv-9A-6Rh" firstAttribute="top" secondItem="WRI-ye-iUz" secondAttribute="bottom" constant="19.5" id="Dbz-TB-fzE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="SzR-9m-Frs" secondAttribute="trailing" constant="10" id="E79-n7-VJM"/>
                     <constraint firstItem="WRI-ye-iUz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="LbV-ta-m4D"/>
                     <constraint firstItem="SzR-9m-Frs" firstAttribute="top" secondItem="t00-CA-k3n" secondAttribute="top" id="Q11-to-gad"/>
@@ -140,14 +140,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -157,6 +151,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

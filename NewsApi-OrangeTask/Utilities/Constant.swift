@@ -9,8 +9,10 @@
 import Foundation
 
 enum ApiKey {
-    static let apiKey                  =   "2726bf3883ef4a29862f124e9ff4a46e"
+    static let apiKey1                  =   "2726bf3883ef4a29862f124e9ff4a46e"
+    static let apiKey                   =   "acea22a4e7c242ed95b6c26851d0b776"
 
+    
 }
 
 // The name urlString
@@ -30,17 +32,17 @@ enum Cell {
 // name Segue of storyboard
 enum  Constant{
     //userDefult
-    static let countryName                =   "CountryName"
+    static let countryName               =   "CountryName"
     static let categoryName              =   "CategoryName"
 
     //storyBoard main
-    static let main         =  "Main"
-    static let categoryVC   = "CategoryVC"
-    static let CountryVC    = "CountryVC"
+    static let main                     =  "Main"
+    static let categoryVC               = "CategoryVC"
+    static let CountryVC                = "CountryVC"
     //storyboard headlinenews
-    static let   navHeadLineNews           =  "NavHeadLineNews"
-    static let mainHeadLineNews   = "HeadLineNews"
-    static let headLineNewsVC   = "HeadLineNewsVC"
+    static let   navHeadLineNews        =  "NavHeadLineNews"
+    static let mainHeadLineNews         = "HeadLineNews"
+    static let headLineNewsVC           = "HeadLineNewsVC"
  
     
 }

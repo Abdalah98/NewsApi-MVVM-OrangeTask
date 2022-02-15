@@ -30,7 +30,8 @@ class HeadLineNewsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(viewModel.vms.count,"vms")
+        navigationController?.navigationBar.prefersLargeTitles = true
+ 
         configureNIBCell()
         tableViewDesign()
         view.addSubview(activity)
@@ -146,7 +147,6 @@ class HeadLineNewsVC: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         
     }
-    
 }
 
 
@@ -158,13 +158,14 @@ extension HeadLineNewsVC :UISearchBarDelegate, UISearchControllerDelegate{
             searching = false
             
         }else{
-            print(searchText)
             viewModel.searchArticle(searchText: searchText)
             searching = true
-            
             reloadTableView()
         }
     }
     
-    
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+             searching = false
+           // initVM()
+         }
 }

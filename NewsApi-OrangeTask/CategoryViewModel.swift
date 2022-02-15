@@ -53,14 +53,16 @@ class CategoryViewModel {
         self.cellViewModel = vms
     }
   
-    
-    // return when i selectedcategoryName cell get cell indexPath Item
+     // return when i selectedcategoryName cell get cell indexPath Item
     func selectCategory( at indexPath: IndexPath ){
         let category = self.categoryName[indexPath.row]
         self.selectedIndex =  category
         print(selectedIndex?.categoryName ?? "")
-      // userDefaults.set([category], forKey: Constant.categoryName)
-      //  print(UserDefaults.standard.string(forKey: Constant.categoryName) ?? [])
-
+        print(category.categoryName)
+//         userDefaults.set(cellViewModel, forKey: Constant.categoryName)
+//         userDefaults.stringArray(forKey: Constant.categoryName)
+//        userDefaults.synchronize()
+//        print(UserDefaults.standard.array(forKey: Constant.categoryName) ?? [])
+       
     }
 }

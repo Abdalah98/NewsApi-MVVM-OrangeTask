@@ -19,8 +19,7 @@ extension HeadLineNewsVC : UITableViewDelegate, UITableViewDataSource{
         headLineNewsTableView.separatorStyle = .none
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(viewModel.numberOfCell)
-        if searching{
+         if searching{
             return viewModel.numberOfCellSearch
 
         }else{

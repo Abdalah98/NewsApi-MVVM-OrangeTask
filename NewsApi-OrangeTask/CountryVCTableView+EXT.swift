@@ -14,7 +14,7 @@ extension CountryVC : UITableViewDelegate, UITableViewDataSource{
         let nib = UINib(nibName: Cell.countryCell, bundle: nil)
         CountryTableView.register(nib, forCellReuseIdentifier: Cell.countryCell)
     }
-     func tableViewDesign() {
+    func tableViewDesign() {
         CountryTableView.tableFooterView = UIView()
         CountryTableView.separatorStyle = .none
     }
@@ -33,12 +33,18 @@ extension CountryVC : UITableViewDelegate, UITableViewDataSource{
         
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        //to select the same selectIndex
         self.viewModel.selectCountry(at: indexPath)
     }
     
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = .none
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
+    
 }

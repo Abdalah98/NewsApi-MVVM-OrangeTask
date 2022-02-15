@@ -12,23 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if UserDefaults.standard.string(forKey: Constant.countryName) != nil   {
-            let storyboard = UIStoryboard(name: Constant.mainHeadLineNews, bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: Constant.headLineNewsVC)
-            let nav = UINavigationController(rootViewController: viewController)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
-            print("userDefault has a value")
-        } else {
-            print("userDefault is nil (empty)")
-            
-            let storyboard = UIStoryboard(name: Constant.main, bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier:Constant.CountryVC)
-            let nav = UINavigationController(rootViewController: viewController)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
-        }
+        rootViewController()
         
+        checkNetworkConnection()
+        return true
+    }
+    fileprivate func checkNetworkConnection() {
         do {
             try Network.reachability = Reachability(hostname: "www.google.com")
         }
@@ -46,8 +35,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error)
             }
         }
-        return true
     }
+    
+    fileprivate func rootViewController() {
+        if UserDefaults.standard.string(forKey: Constant.countryName) != nil  && UserDefaults.standard.string(forKey: Constant.categoryName) != nil {
+            let storyboard = UIStoryboard(name: Constant.mainHeadLineNews, bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: Constant.headLineNewsVC)
+            let nav = UINavigationController(rootViewController: viewController)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+            print("userDefault has a value")
+        } else {
+            print("userDefault is nil (empty)")
+            
+            let storyboard = UIStoryboard(name: Constant.main, bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier:Constant.CountryVC)
+            let nav = UINavigationController(rootViewController: viewController)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
+    }
+    
 }
 
 
