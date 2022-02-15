@@ -6,9 +6,13 @@ MVVM With Dependency Injection
 
 # Features
 The app has several main features:
+
 1- User should choose a favorite country to see result
+
 2-  The user must choose 3 favorite categories to see filtered who wants to watch based on categories: general, business, science, technology, health, entertainment, sports
+
 3- Read article inside a Safari  in modal sheet presentation.
+
 4- Search in Favorite categories 
 
 
