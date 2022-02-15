@@ -14,16 +14,17 @@ class HeadLineNewsCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var discriptionLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
-    
+    //calBack
     var callBack:(()->())?
     var url:String?
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        //customize constrain cell
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom:5, right: 10))
     }
 
-    /// The var  headLineNewsCellViewModel read data from it and pass it from headLine vc
+    // The var  headLineNewsCellViewModel read data from it and pass it from headLine vc
     var headLineNewsCellViewModel:HeadLineNewsCellViewModel?{
         didSet{
             titleLabel.text = headLineNewsCellViewModel?.title
@@ -37,7 +38,7 @@ class HeadLineNewsCell: UITableViewCell {
             }
         }
     }
-    
+    // to open url in Safari
     @IBAction func oprnUrlAction(_ sender: Any) {
         callBack?()
     }

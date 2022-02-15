@@ -8,7 +8,7 @@
 import XCTest
 @testable import NewsApi_OrangeTask
 
-class NewsApi_OrangeTaskTests: XCTestCase {
-
-  
-}
+//class NewsApi_OrangeTaskTests: XCTestCase {
+//
+//  //  var sut :
+//}

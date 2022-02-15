@@ -9,7 +9,7 @@ import Foundation
 class ApiService {
     
     func getNewsList(countryName:String,categoryName:String) -> URL? {
-         let url  =  URL(string:String(format: URLS.newsList, arguments: [countryName,categoryName]))
+        let url  =  URL(string:String(format: URLS.newsList, arguments: [countryName,categoryName]))
         if  url != nil {
             return url
         }else{
@@ -17,7 +17,7 @@ class ApiService {
         }
     }
     
-    func fetchAllNews(from url: URL?,  complete completion: @escaping ((Result<AllNews, ResoneError>) -> Void)) {
+    func fetchAllNews(from url: URL?,  complete completion: @escaping ((Result<News, ResoneError>) -> Void)) {
         guard let url = url else {
             completion(.failure(.invaldURL))
             
@@ -41,11 +41,11 @@ class ApiService {
                 return }
             
             do {
-                let objects = try JSONDecoder().decode(AllNews.self, from: data)
+                let objects = try JSONDecoder().decode(News.self, from: data)
                 // success
                 //objects.articles.sort { $0.date < $1.date }
-
-                 completion(.success(objects))
+                
+                completion(.success(objects))
             } catch {
                 completion(.failure(.invalidData))
             }
@@ -56,7 +56,7 @@ class ApiService {
 }
 
 extension ApiService : ApiServiceProtocol{
-    func getNewsList(countryName: String, categoryName: String, completion: @escaping (Result<AllNews, ResoneError>) -> Void) {
+    func getNewsList(countryName: String, categoryName: String, completion: @escaping (Result<News, ResoneError>) -> Void) {
         fetchAllNews(from: getNewsList(countryName: countryName, categoryName: categoryName), complete: completion)
         
     }

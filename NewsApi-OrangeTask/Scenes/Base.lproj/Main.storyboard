@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--choose country-->
+        <!--Choose Country-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="CountryVC" id="BYZ-38-t0r" customClass="CountryVC" customModule="NewsApi_OrangeTask" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,7 +67,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j6y-Me-yXA" secondAttribute="bottom" constant="19" id="lO5-vB-8k4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="choose country" id="TqT-RQ-oTd"/>
+                    <navigationItem key="navigationItem" title="Choose Country" id="TqT-RQ-oTd"/>
                     <connections>
                         <outlet property="CountryTableView" destination="eJV-1V-hge" id="Fjz-YU-sO5"/>
                     </connections>

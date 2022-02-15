@@ -13,10 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         rootViewController()
-        
         checkNetworkConnection()
         return true
     }
+    // check Networking and notify it
     fileprivate func checkNetworkConnection() {
         do {
             try Network.reachability = Reachability(hostname: "www.google.com")

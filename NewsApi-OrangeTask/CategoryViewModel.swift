@@ -52,17 +52,22 @@ class CategoryViewModel {
         }
         self.cellViewModel = vms
     }
-  
+    
+     var selectedCategoy = [Category]()
+      
      // return when i selectedcategoryName cell get cell indexPath Item
     func selectCategory( at indexPath: IndexPath ){
         let category = self.categoryName[indexPath.row]
         self.selectedIndex =  category
-        print(selectedIndex?.categoryName ?? "")
-        print(category.categoryName)
-//         userDefaults.set(cellViewModel, forKey: Constant.categoryName)
-//         userDefaults.stringArray(forKey: Constant.categoryName)
-//        userDefaults.synchronize()
-//        print(UserDefaults.standard.array(forKey: Constant.categoryName) ?? [])
-       
+        self.selectedCategoy.append(category)
+    }
+    
+    func didTabNextCategory(){
+        let categoryName = selectedCategoy.map{ $0.categoryName}
+        userDefaults.set(categoryName, forKey: Constant.categoryName)
+
+//        for i in selectedCategoy{
+//            categoryName.append(i.categoryName)
+//        }
     }
 }

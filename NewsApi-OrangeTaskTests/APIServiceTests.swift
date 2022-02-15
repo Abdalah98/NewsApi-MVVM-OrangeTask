@@ -1,12 +1,12 @@
 //
 //  APIServiceTests.swift
-//  Thirdwayv.inc TaskTests
+//  NewsApi-OrangeTaskTests
 //
-//  Created by Abdallah on 1/27/22.
+//  Created by Abdallah on 2/13/22.
 //
 
 import XCTest
-@testable import Thirdwayv_inc_Task
+@testable import NewsApi_OrangeTask
 
 class APIServiceTests: XCTestCase {
     var sut: ApiService!
@@ -22,32 +22,31 @@ class APIServiceTests: XCTestCase {
     }
     
     // testing product
-    func test_get_Product_List() {
+    func test_get_New_List() {
         // Given
-        let promise = XCTestExpectation(description: "Fetch ListProduct")
+        let promise = XCTestExpectation(description: "Fetch News")
         var responseError: Error?
-        var responseProductList: [Product]?
+        var responseNewsList: [Article]?
 
         // When
-        guard let bundle = Bundle.unitTest.path(forResource: "products", ofType: "json") else {
+        guard let bundle = Bundle.unitTest.path(forResource: "News", ofType: "json") else {
             XCTFail("Error: content not found")
             return
         }
-        sut.fetchAllProducts(from: URL(fileURLWithPath: bundle)) { result in
-                        switch result {
-                        case .success(let response):
-                            responseProductList = response
-                            promise.fulfill()
-                        case .failure(let error):
-                            responseError = error
-                            promise.fulfill()
-                        }
-                    }
-
+        sut.fetchAllNews(from: URL(fileURLWithPath: bundle)) { result in
+            switch result {
+            case .success(let response):
+                responseNewsList = response.articles
+                promise.fulfill()
+            case .failure(let error):
+                responseError = error
+                promise.fulfill()
+            }
+        }
         wait(for: [promise], timeout: 10)
 
         // Then
         XCTAssertNil(responseError)
-        XCTAssertNotNil(responseProductList)
+        XCTAssertNotNil(responseNewsList)
     }
 }

@@ -84,10 +84,7 @@ class HeadLineNewsVC: UIViewController {
         showAlert()
         updateLoadingStatus()
         reloadTableView()
-        viewModel.initFetchDataFirstCategroy()
-        viewModel.initFetchDatSecCategroy()
-        viewModel.initFetchDataThirdCategroy()
-        
+        viewModel.initFetchDataFavoriteCategroy()
     }
     ///  show Alert Closure : when get error or happen something show me error in Alert extension
     fileprivate func showAlert() {

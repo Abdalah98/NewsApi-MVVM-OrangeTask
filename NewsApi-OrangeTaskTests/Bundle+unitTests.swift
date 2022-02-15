@@ -1,8 +1,8 @@
 //
 //  Bundle+unitTests.swift
-//  Thirdwayv.inc TaskTests
+//  NewsApi-OrangeTaskTests
 //
-//  Created by Abdallah on 1/27/22.
+//  Created by Abdallah on 2/13/22.
 //
 
 import Foundation

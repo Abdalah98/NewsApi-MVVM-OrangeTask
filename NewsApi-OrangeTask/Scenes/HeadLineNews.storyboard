@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--favorite Categories-->
+        <!--Favorite Categories-->
         <scene sceneID="zsl-aR-7Yt">
             <objects>
                 <viewController storyboardIdentifier="HeadLineNewsVC" id="OSg-7v-TXs" customClass="HeadLineNewsVC" customModule="NewsApi_OrangeTask" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,7 +45,7 @@
                             <constraint firstItem="CuD-1i-evW" firstAttribute="leading" secondItem="ZSi-Ay-FZ4" secondAttribute="leading" id="s6z-yW-cwx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="favorite Categories" id="czL-lL-AOQ"/>
+                    <navigationItem key="navigationItem" title="Favorite Categories" id="czL-lL-AOQ"/>
                     <connections>
                         <outlet property="headLineNewsTableView" destination="CuD-1i-evW" id="aTc-0h-KBf"/>
                     </connections>

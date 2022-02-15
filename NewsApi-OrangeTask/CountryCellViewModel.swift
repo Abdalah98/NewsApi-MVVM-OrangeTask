@@ -10,6 +10,6 @@ import Foundation
 struct CountryCellViewModel {
     var countryName :String
     var countryAppreviation :String
-    var   countryIamge :String
+    var countryIamge :String
     
 }

@@ -18,9 +18,10 @@ class HeadLineNewsViewModel{
     
     var vms = [HeadLineNewsCellViewModel]()
     let group = DispatchGroup()
-    
+    // read from usedefulat  favorite country which i choose it
     let userDefaultsCountryName = UserDefaults.standard.string(forKey: Constant.countryName)
-    
+    let userDefaultsCategoryName:[Any]? = UserDefaults.standard.array(forKey: Constant.categoryName)
+
     // The cellViewModel in which I put the data  i get it from json and put in cell when data isready it call reloadTableViewClouser
     private var cellViewModel : [HeadLineNewsCellViewModel] = [HeadLineNewsCellViewModel](){
         didSet{
@@ -44,17 +45,16 @@ class HeadLineNewsViewModel{
     
     func searchArticle(searchText:String){
         filteredData = cellViewModel
-
         filteredData = cellViewModel.filter({ $0.title.contains(searchText)})
-                    self.reloadTableViewClouser?()
-      
+        self.reloadTableViewClouser?()
+        
     }
     // return number count of cell
     var numberOfCell :Int {
-         return cellViewModel.count
+        return cellViewModel.count
     }
     var numberOfCellSearch :Int {
-         return filteredData.count
+        return filteredData.count
     }
     //  base of loading view
     var state: State = .empty {
@@ -65,7 +65,6 @@ class HeadLineNewsViewModel{
     // alertMessage  put the error in it if get error from api i  put it and show in Alert
     var alertMessage: String? {
         didSet {
-            
             self.showAlertClosure?()
         }
     }
@@ -73,63 +72,30 @@ class HeadLineNewsViewModel{
     // once call it initFetchData in viewController the start state loading
     // if get error change state to error and hide loading and show Alert
     // and get data and make process
-    func initFetchDataFirstCategroy(){
+    func initFetchDataFavoriteCategroy(){
+        guard let userDefaultsCategoryName = userDefaultsCategoryName as? [String] else {
+            return
+        }
         state = .loading
-        group.enter()
-        apiService.getNewsList(countryName:userDefaultsCountryName ?? "empty countyName", categoryName:"health"){[weak self] result in
-            guard let self = self else{return}
-            self.group.leave()
-            switch result {
-            case .success(let response):
-                
-                self.processFetchedArticle(articles: response.articles )
-                self.state = .populated
-                
-            case .failure(let error):
-                self.state = .error
-                self.alertMessage = error.rawValue
+        for categoy in userDefaultsCategoryName {
+            group.enter()
+            apiService.getNewsList(countryName:userDefaultsCountryName ?? "empty countyName", categoryName:categoy){[weak self] result in
+                guard let self = self else{return}
+                self.group.leave()
+                switch result {
+                case .success(let response):
+                    self.processFetchedArticle(articles: response.articles )
+                    self.sortByDate()
+                    self.state = .populated
+                case .failure(let error):
+                    self.state = .error
+                    self.alertMessage = error.rawValue
+                }
             }
         }
-     
+      
     }
-    func initFetchDatSecCategroy(){
-        state = .loading
-        group.enter()
-        apiService.getNewsList(countryName:userDefaultsCountryName ?? "empty countyName", categoryName: "entertainment"){[weak self] result in
-            guard let self = self else{return}
-            self.group.leave()
-
-            switch result {
-            case .success(let response):
-                
-                self.processFetchedArticle(articles: response.articles )
-                self.state = .populated
-                
-            case .failure(let error):
-                self.state = .error
-                self.alertMessage = error.rawValue
-            }
-        }
-    }
-    func initFetchDataThirdCategroy(){
-        state = .loading
-        group.enter()
-        apiService.getNewsList(countryName:userDefaultsCountryName ?? "empty countyName", categoryName:"technology"){[weak self] result in
-            guard let self = self else{return}
-            self.group.leave()
-
-            switch result {
-            case .success(let response):
-                
-                self.processFetchedArticle(articles: response.articles )
-                self.state = .populated
-                
-            case .failure(let error):
-                self.state = .error
-                self.alertMessage = error.rawValue
-            }
-        }
-    }
+  
     // call each cell and return data by indexPath item
     func getCellViewModel(at indexPath : IndexPath) -> HeadLineNewsCellViewModel{
         return cellViewModel[indexPath.item]
@@ -141,18 +107,16 @@ class HeadLineNewsViewModel{
     
     //  i fetch data and i put data  in HeadLineNewsCellViewModel
     func createCellViewModel( article: Article ) -> HeadLineNewsCellViewModel {
-        let  title  = article.title ?? ""
-        let  date   = article.publishedAt ?? ""
+        let  title   = article.title ?? ""
+        let  date    = article.publishedAt ?? ""
         let  image   = article.urlToImage ?? ""
         let  source  = article.source?.name ?? ""
         let  name    = article.source?.name ?? ""
         let  description = article.articleDescription ?? ""
         let  url     = article.url ?? ""
-        
         return HeadLineNewsCellViewModel(title: title, date: date, image: image, source: source, name: name, description: description , url: url )
         
     }
-
     
     // fetch all articles for loop it  and append data in createCellViewModel
     private func processFetchedArticle( articles: [Article] ) {
@@ -166,8 +130,11 @@ class HeadLineNewsViewModel{
     // return when i selectedArticle cell get cell indexPath Item
     func productDetails( at indexPath: IndexPath ){
         let article = self.articleData[indexPath.row]
-         self.selectedArticle = article
+        self.selectedArticle = article
     }
-   
+    // ordered data by date to show it
+    private func sortByDate(){
+        self.cellViewModel.sort(by: {($0.date ).count < ($1.date ).count })
+    }
 }
 

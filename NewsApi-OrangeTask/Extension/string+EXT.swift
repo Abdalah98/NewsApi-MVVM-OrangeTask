@@ -1,6 +1,6 @@
 //
 //  string+EXT.swift
-//  News
+//  NewsApi-OrangeTask
 //
 //  Created by Abdallah on 8/11/21.
 //

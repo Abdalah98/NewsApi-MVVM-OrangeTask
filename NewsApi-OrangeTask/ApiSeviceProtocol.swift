@@ -6,9 +6,7 @@
 //
 
 import Foundation
-import Foundation
 protocol ApiServiceProtocol {
-    func getNewsList(countryName:String,categoryName:String,completion: @escaping (Result<AllNews , ResoneError>) -> Void)
-    func fetchAllNews(from url: URL?, complete: @escaping ((Result<AllNews , ResoneError>) -> Void))
-
+    func getNewsList(countryName:String,categoryName:String,completion: @escaping (Result<News , ResoneError>) -> Void)
+    func fetchAllNews(from url: URL?, complete: @escaping ((Result<News , ResoneError>) -> Void))
 }

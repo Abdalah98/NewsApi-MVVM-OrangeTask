@@ -18,7 +18,7 @@ import SafariServices
         self.present(alert, animated: true, completion: nil)
     }
     
-    
+    // pass url in func goSafari to open url in Safari
     func goSafari(urlString: String){
     guard let url = URL(string:urlString ) else {return}
     let safariVC = SFSafariViewController(url: url)
