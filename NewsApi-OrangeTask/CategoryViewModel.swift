@@ -65,9 +65,5 @@ class CategoryViewModel {
     func didTabNextCategory(){
         let categoryName = selectedCategoy.map{ $0.categoryName}
         userDefaults.set(categoryName, forKey: Constant.categoryName)
-
-//        for i in selectedCategoy{
-//            categoryName.append(i.categoryName)
-//        }
     }
 }

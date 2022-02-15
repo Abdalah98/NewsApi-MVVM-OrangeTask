@@ -13,6 +13,7 @@ extension CountryVC : UITableViewDelegate, UITableViewDataSource{
     func configureNIBCell(){
         let nib = UINib(nibName: Cell.countryCell, bundle: nil)
         CountryTableView.register(nib, forCellReuseIdentifier: Cell.countryCell)
+        
     }
     func tableViewDesign() {
         CountryTableView.tableFooterView = UIView()
@@ -30,7 +31,6 @@ extension CountryVC : UITableViewDelegate, UITableViewDataSource{
         }
         let cellVM = viewModel.getCellViewModel(at: indexPath)
         cell.countryNameCellViewModel = cellVM
-        
         return cell
     }
     

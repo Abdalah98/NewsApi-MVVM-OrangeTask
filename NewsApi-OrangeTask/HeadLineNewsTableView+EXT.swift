@@ -23,7 +23,7 @@ extension HeadLineNewsVC : UITableViewDelegate, UITableViewDataSource{
             return viewModel.numberOfCellSearch
 
         }else{
-            return viewModel.numberOfCell
+            return viewModel.numberOfCellNews
 
         }
     }

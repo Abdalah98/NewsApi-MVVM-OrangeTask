@@ -50,7 +50,7 @@ class HeadLineNewsViewModel{
         
     }
     // return number count of cell
-    var numberOfCell :Int {
+    var numberOfCellNews :Int {
         return cellViewModel.count
     }
     var numberOfCellSearch :Int {
@@ -128,7 +128,7 @@ class HeadLineNewsViewModel{
     }
     
     // return when i selectedArticle cell get cell indexPath Item
-    func productDetails( at indexPath: IndexPath ){
+    func articleDetails( at indexPath: IndexPath ){
         let article = self.articleData[indexPath.row]
         self.selectedArticle = article
     }

@@ -10,24 +10,26 @@ import XCTest
 
 class APIServiceTests: XCTestCase {
     var sut: ApiService!
-   
+    var apiServiceMock: APIServiceMock!
+    
     override func setUp() {
         super.setUp()
         sut = ApiService()
     }
-
+    
     override func tearDown() {
         sut = nil
         super.tearDown()
     }
     
-    // testing product
+    
+    // testing News
     func test_get_New_List() {
         // Given
         let promise = XCTestExpectation(description: "Fetch News")
         var responseError: Error?
         var responseNewsList: [Article]?
-
+        
         // When
         guard let bundle = Bundle.unitTest.path(forResource: "News", ofType: "json") else {
             XCTFail("Error: content not found")
@@ -44,7 +46,7 @@ class APIServiceTests: XCTestCase {
             }
         }
         wait(for: [promise], timeout: 10)
-
+        
         // Then
         XCTAssertNil(responseError)
         XCTAssertNotNil(responseNewsList)
