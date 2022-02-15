@@ -36,3 +36,4 @@ The app has several main features:
 
 #### UI
 ## video demo
+https://user-images.githubusercontent.com/41602889/154153453-e00b076a-fdfa-4969-aa7e-fa3922029b81.mov
