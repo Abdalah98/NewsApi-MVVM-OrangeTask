@@ -40,5 +40,6 @@ https://user-images.githubusercontent.com/41602889/154184409-d827d1d0-daa0-4c71-
 
 ## Headlines favorite categories.
 https://user-images.githubusercontent.com/41602889/154184344-ea57952f-917b-4add-a3f0-d479a4cb6c51.mov  
+
 https://user-images.githubusercontent.com/41602889/154184382-7f1547fe-e1aa-4b29-9570-42d28778a5dc.mov
 
