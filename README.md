@@ -35,7 +35,7 @@ The app has several main features:
 
 #### UI
 ## video demo
-## Onboarding
+#### Onboarding
 https://user-images.githubusercontent.com/41602889/154184409-d827d1d0-daa0-4c71-a643-21f515445a7f.mov
 
 ## Headlines favorite categories.
