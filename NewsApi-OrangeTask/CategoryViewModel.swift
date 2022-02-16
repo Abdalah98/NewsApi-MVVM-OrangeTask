@@ -45,7 +45,7 @@ class CategoryViewModel {
     
     // fetch all category and for loop it  and append data in createCellViewModel
      private func processFetchedCategoy( category: [Category] ) {
-        self.categoryName = category // Cache
+        self.categoryName = category 
         var vms = [CategoryCellViewModel]()
         for allcategory in category {
             vms.append(createCellViewModel(category: allcategory) )

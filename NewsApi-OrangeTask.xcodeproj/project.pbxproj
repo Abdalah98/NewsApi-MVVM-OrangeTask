@@ -406,8 +406,8 @@
 		B2889B4327B9E5FB0006ECF5 /* CategoryViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B21CB35227B9859F00D926AA /* categoryCellViewModel.swift */,
 				B21CB34827B9842F00D926AA /* CategoryViewModel.swift */,
+				B21CB35227B9859F00D926AA /* categoryCellViewModel.swift */,
 			);
 			name = CategoryViewModel;
 			sourceTree = "<group>";

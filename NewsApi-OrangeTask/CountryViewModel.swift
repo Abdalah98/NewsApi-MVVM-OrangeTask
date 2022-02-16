@@ -51,7 +51,7 @@ class CountryViewModel {
     }
     // fetch all Country and for loop it  and append data in createCellViewModel
     private func processFetchedCountry( country: [Country] ) {
-        self.countryName = country // Cache
+        self.countryName = country
         var vms = [CountryCellViewModel]()
         for allCountry in country {
             vms.append( createCellViewModel(country: allCountry) )

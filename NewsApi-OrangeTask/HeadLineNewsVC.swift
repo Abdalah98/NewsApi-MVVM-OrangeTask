@@ -13,7 +13,7 @@ class HeadLineNewsVC: UIViewController {
     
     var searching = false
     let searchController = UISearchController()
-
+    
     // binding with viewModel
     lazy var viewModel: HeadLineNewsViewModel = {
         return  HeadLineNewsViewModel()
@@ -31,46 +31,45 @@ class HeadLineNewsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
- 
+        
         configureNIBCell()
         tableViewDesign()
         view.addSubview(activity)
         activity.fillSuperview()
-        initVM()
-        
+        //   initVM()
         configureSearch()
-        //        NotificationCenter.default.addObserver(self,selector: #selector(statusManager),name: .flagsChanged,object: nil)
-        //        updateUserInterface()
+        NotificationCenter.default.addObserver(self,selector: #selector(statusManager),name: .flagsChanged,object: nil)
+        updateUserInterface()
     }
     
     // check Network connection
-    /// check network connection and get data
-    /// case unreachable that mean no internet connection
-    /// case wwan that mean via a cellular connection
-    /// case wwan that mean via a wifi connection
-    //    func updateUserInterface() {
-    //        switch Network.reachability.status {
-    //        case .unreachable:
-    //            self.showAlert("you don't have connection check cellular connection or wifi!")
-    //            initVM()
-    //        case .wwan:
-    //            initVM()
-    //        case .wifi:
-    //            initVM()
-    //        }
-    //        print("Reachability Summary")
-    //        print("Status:", Network.reachability.status)
-    //        print("HostName:", Network.reachability.hostname ?? "nil")
-    //        print("Reachable:", Network.reachability.isReachable)
-    //        print("Wifi:", Network.reachability.isReachableViaWiFi)
-    //    }
-    //
-    //    /// Update User Interface if has connection or not has connection networking
-    //    /// - Parameter notification: notification center
-    //    @objc func statusManager(_ notification: Notification) {
-    //        updateUserInterface()
-    //    }
-    //
+    // check network connection and get data
+    // case unreachable that mean no internet connection
+    // case wwan that mean via a cellular connection
+    // case wwan that mean via a wifi connection
+    func updateUserInterface() {
+        switch Network.reachability.status {
+        case .unreachable:
+            self.showAlert("you don't have connection check cellular connection or wifi!")
+            stopActivity()
+        case .wwan:
+            initVM()
+        case .wifi:
+            initVM()
+        }
+        print("Reachability Summary")
+        print("Status:", Network.reachability.status)
+        print("HostName:", Network.reachability.hostname ?? "nil")
+        print("Reachable:", Network.reachability.isReachable)
+        print("Wifi:", Network.reachability.isReachableViaWiFi)
+    }
+    
+    // Update User Interface if has connection or not has connection networking
+    // - Parameter notification: notification center
+    @objc func statusManager(_ notification: Notification) {
+        updateUserInterface()
+    }
+    
     
     
     //  activityView Hide when get data or found error
@@ -148,12 +147,9 @@ class HeadLineNewsVC: UIViewController {
 
 
 extension HeadLineNewsVC :UISearchBarDelegate, UISearchControllerDelegate{
-    
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-         if searchText == ""{
+        if searchText == ""{
             searching = false
-            
         }else{
             viewModel.searchArticle(searchText: searchText)
             searching = true
@@ -161,8 +157,8 @@ extension HeadLineNewsVC :UISearchBarDelegate, UISearchControllerDelegate{
         }
     }
     
-        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-             searching = false
-           // initVM()
-         }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        // initVM()
+    }
 }

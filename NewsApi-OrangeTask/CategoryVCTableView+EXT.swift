@@ -29,16 +29,27 @@ extension CategoryVC : UITableViewDelegate, UITableViewDataSource{
         }
         let cellVM = viewModel.getCellViewModel(at: indexPath)
         cell.categoryCellViewModel = cellVM
+        // check it selected or no
+        cell.accessoryType = selectedEventTypes.contains(indexPath) ? .checkmark:.none
         return cell
     }
 
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        tableView.cellForRow(at: indexPath)?.accessoryType = .none
-//    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-      //  self.viewModel.selectedCategoy.a
-      self.viewModel.selectCategory(at: indexPath)
-    print(indexPath)
-    }
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           tableView.deselectRow(at: indexPath, animated: false)
+        // if i unselected it remove it from selectCategory
+           if selectedEventTypes.contains(indexPath) {
+               selectedEventTypes.remove(indexPath)
+            self.viewModel.selectCategory(at: indexPath)
+            // if i selected 3 categories  it append  in selectCategory
+           } else if selectedEventTypes.count < 3 {
+               selectedEventTypes.insert(indexPath)
+              self.viewModel.selectCategory(at: indexPath)
+           }
+        tableView.reloadRows(at: [indexPath], with:.none)
+       }
+
+
+    
+    
+    
 }
