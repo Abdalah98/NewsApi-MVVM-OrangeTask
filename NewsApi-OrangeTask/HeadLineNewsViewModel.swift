@@ -45,7 +45,9 @@ class HeadLineNewsViewModel{
     
     func searchArticle(searchText:String){
         filteredData = cellViewModel
-        filteredData = cellViewModel.filter({ $0.title.contains(searchText)})
+        filteredData = cellViewModel.filter({ $0.title.contains(searchText.lowercased())})
+        filteredData = cellViewModel.filter({ $0.title.contains(searchText.uppercased())})
+
         self.reloadTableViewClouser?()
         
     }

@@ -36,7 +36,6 @@ class HeadLineNewsVC: UIViewController {
         tableViewDesign()
         view.addSubview(activity)
         activity.fillSuperview()
-        //   initVM()
         configureSearch()
         NotificationCenter.default.addObserver(self,selector: #selector(statusManager),name: .flagsChanged,object: nil)
         updateUserInterface()
